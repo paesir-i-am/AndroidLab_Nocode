@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ch11_JetPack</string>
+    <string name="drawer_opened">Opened Drawer</string>
+    <string name="drawer_colsed">Closed Drawer</string>
+</resources>
