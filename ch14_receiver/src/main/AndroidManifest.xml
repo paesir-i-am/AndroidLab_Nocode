@@ -8,11 +8,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLab">
+        <!--브로드캐스트 리시버 등록-->
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true" >
         </receiver>
+        <!--액티비티 설정-->
         <activity
             android:name=".MainActivity"
             android:exported="true">

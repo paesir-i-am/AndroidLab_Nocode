@@ -8,10 +8,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLab">
+
+        <!-- AIDL 기반의 바인드 서비스 정의 -->
         <service
             android:name=".MyAIDLService"
             android:enabled="true"
             android:exported="true">
+            <!--외부 모듈의 패키지에 접근할 수 있도록 Intent 필터 설정-->
             <intent-filter>
                 <action android:name="ACTION_SERVICE_AIDL"/>
             </intent-filter>
@@ -19,6 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <!--앱 실행시 진입점이 되는 액션 및 카테고리-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

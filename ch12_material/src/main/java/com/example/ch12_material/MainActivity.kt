@@ -13,15 +13,18 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
+    // 드로어 열리게 하는 토글 클래스
     lateinit var toggle: ActionBarDrawerToggle
 
     class MyFragmentPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(activity){
+        //사용할 프래그먼트 3개를 리스트로 저장
         val fragments: List<Fragment>
         init {
             fragments= listOf(OneFragment(), TwoFragment(), ThreeFragment())
         }
         override fun getItemCount(): Int = fragments.size
 
+        // 해당 위치의 프래그먼트를 반환
         override fun createFragment(position: Int): Fragment = fragments[position]
     }
 
@@ -30,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //add......................................
         setSupportActionBar(binding.toolbar)
 
         toggle = ActionBarDrawerToggle(this, binding.drawer, R.string.drawer_opened,
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.syncState()
 
+        // 뷰 페이저에 사용할 프래그먼트들을 관리하는 어댑터 적용
         val adapter = MyFragmentPagerAdapter(this)
         binding.viewpager.adapter = adapter
 
@@ -47,13 +50,14 @@ class MainActivity : AppCompatActivity() {
         }.attach()
     }
 
+    //내비게이션 메뉴 xml 불러오기
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //이벤트가 toggle 버튼에서 제공된거라면..
+        //토글 버튼을 누르면 드로어 열리도록
         if(toggle.onOptionsItemSelected(item)){
             return true
         }
