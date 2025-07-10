@@ -49,5 +49,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("com.google.android.gms:play-services:12.0.1")
+    implementation(libs.play.services)
+//  안되면 이 버전으로 해보기 implementation("com.google.android.gms:play-services:12.0.1")
 }
